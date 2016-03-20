@@ -118,7 +118,7 @@ public class Player extends MapObject {
         scratching = true;
     }
     public void setGliding(boolean b) {
-        gliding = b;
+        gliding =  b;
     }
 
     private void getNextPosition() {
@@ -272,7 +272,7 @@ public class Player extends MapObject {
     }
 
     public void draw(Graphics2D g) {
-        setmapPosition();
+        setMapPosition();
 
         //draw firebals
         for (int i = 0; i < fireBalls.size(); i++) {
@@ -287,11 +287,7 @@ public class Player extends MapObject {
                 return;
             }
         }
-        if (facingRight) {
-            g.drawImage(animation.getImage(), (int)(x + xmap - width / 2), (int)(y + ymap - height / 2), null);
-        } else {
-            g.drawImage(animation.getImage(), (int)(x + xmap - width / 2 + width), (int)(y + ymap - height / 2), -width, height, null);
-        }
+        super.draw(g);
 
 
     }

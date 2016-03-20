@@ -18,6 +18,8 @@ public class FireBall extends MapObject {
 
         super(tm);
 
+        facingRight = right;
+
         moveSpeed =  3.8;
         if (right) dx = moveSpeed;
         else dx = -moveSpeed;
@@ -75,13 +77,9 @@ public class FireBall extends MapObject {
     }
 
     public void draw(Graphics2D g) {
-        setmapPosition();
+        setMapPosition();
 
-        if (facingRight) {
-            g.drawImage(animation.getImage(), (int)(x + xmap - width / 2), (int)(y + ymap - height / 2), null);
-        } else {
-            g.drawImage(animation.getImage(), (int)(x + xmap - width / 2 + width), (int)(y + ymap - height / 2), -width, height, null);
-        }
+        super.draw(g);
 
 
     }
