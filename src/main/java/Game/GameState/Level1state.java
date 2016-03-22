@@ -1,7 +1,7 @@
 package Game.GameState;
 
 import Game.Entity.*;
-import Game.Entity.Enemies.Slugger;
+import Game.Entity.Enemies.*;
 import Game.Main.GamePanel;
 import Game.TileMap.*;
 
@@ -39,7 +39,7 @@ public class Level1state extends GameState {
         bg = new Background("/grassbg1.gif", 0.1);
 
         player = new Player(tileMap);
-        player.setPosition(100, 100);
+        player.setPosition(100, 300);
 
         hud = new HUD(player);
 
@@ -53,8 +53,11 @@ public class Level1state extends GameState {
 
         enemies = new ArrayList<Enemy>();
 
-        Slugger s;
-        Point[] points = new Point[] {
+        Slugger sl;
+        sl = new Slugger(tileMap);
+        sl.setPosition(100, 25);
+        enemies.add(sl);
+        /*Point[] points = new Point[] {
             new Point (200, 100),
             new Point (860, 200),
             new Point (1525, 200),
@@ -67,7 +70,12 @@ public class Level1state extends GameState {
             s = new Slugger(tileMap);
             s.setPosition(points[i].x, points[i].y);
             enemies.add(s);
-        }
+        }*/
+        redSpider rs;
+        rs = new redSpider(tileMap);
+        rs.setPosition(200, 200);
+        enemies.add(rs);
+
 
     }
 

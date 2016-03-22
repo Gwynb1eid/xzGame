@@ -35,7 +35,7 @@ public class Player extends MapObject {
 
     //animations
     private ArrayList<BufferedImage[]> sprites;
-    private final int[] numFrames = {2, 8, 1, 2, 4, 2, 5}; //nums frames per action
+    private final int[] numFrames = {3, 6, 4, 6, 6, 2, 1}; //nums frames per action
 
     //animations actions
     private static final int IDLE = 0;
@@ -49,10 +49,10 @@ public class Player extends MapObject {
     public Player (TileMap tm){
         super(tm);
 
-        width = 30;
-        height = 30;
-        cwidth = 20;
-        cheight = 20;
+        width = 40;
+        height = 54;
+        cwidth = 30;
+        cheight = 40;
 
         moveSpeed = 0.3;
         maxSpeed = 1.6;
@@ -76,7 +76,7 @@ public class Player extends MapObject {
 
         //load sprites
         try {
-            BufferedImage spritesheet = ImageIO.read(getClass().getResourceAsStream("/playersprites.gif"));
+            BufferedImage spritesheet = ImageIO.read(getClass().getResourceAsStream("/test.png"));
 
             sprites = new ArrayList<BufferedImage[]>();
 
@@ -271,15 +271,15 @@ public class Player extends MapObject {
             if (currentAction != SCRATCHING) {
                 currentAction = SCRATCHING;
                 animation.setFrames(sprites.get(SCRATCHING));
-                animation.setDelay(50);
-                width = 60;
+                animation.setDelay(75);
+                width = 80;
             }
         } else if (firing) {
             if (currentAction != FIREBALL) {
                 currentAction = FIREBALL;
                 animation.setFrames(sprites.get(FIREBALL));
                 animation.setDelay(100);
-                width = 30;
+                width = 40;
             }
         } else if (dy > 0) {
             if (gliding) {
@@ -287,34 +287,34 @@ public class Player extends MapObject {
                     currentAction = GLIDING;
                     animation.setFrames(sprites.get(GLIDING));
                     animation.setDelay(100);
-                    width = 30;
+                    width = 40;
                 }
             } else if (currentAction != FALLING) {
                 currentAction = FALLING;
                 animation.setFrames(sprites.get(FALLING));
                 animation.setDelay(100);
-                width = 30;
+                width = 40;
             }
         } else if (dy < 0) {
             if (currentAction != JUMPING) {
                 currentAction = JUMPING;
                 animation.setFrames(sprites.get(JUMPING));
-                animation.setDelay(-1);
-                width = 30;
+                animation.setDelay(100);
+                width = 36;
             }
         } else if (left || right) {
             if (currentAction != WALKING) {
                 currentAction = WALKING;
                 animation.setFrames(sprites.get(WALKING));
-                animation.setDelay(40);
-                width = 30;
+                animation.setDelay(80);
+                width = 41;
             }
         } else {
             if (currentAction != IDLE) {
                 currentAction = IDLE;
                 animation.setFrames(sprites.get(IDLE));
                 animation.setDelay(400);
-                width = 30;
+                width = 38;
             }
         }
 
